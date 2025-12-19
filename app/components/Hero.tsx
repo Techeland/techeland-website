@@ -5,6 +5,8 @@ import { RiNextjsFill } from "react-icons/ri";
 import { SiGooglecloud, SiTerraform, SiTypescript } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { IconType } from "react-icons";
+import { Button } from "./ui/Button";
+import { Text } from "./ui/Text";
 
 const iconLibrary: Record<string, IconType> = {
   react: FaReact,
@@ -57,6 +59,13 @@ export const Hero: React.FC = () => {
           <TechBadge icon="terraform" label="Terraform" />
           <TechBadge icon="postgres" label="Postgres" />
         </div>
+      </div>
+      <div className="flex justify-center pt-14 ">
+        <Button size="lg">
+          <Text variant="large" dark>
+            Discuss your Project
+          </Text>
+        </Button>
       </div>
     </>
   );

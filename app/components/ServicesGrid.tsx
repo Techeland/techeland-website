@@ -11,24 +11,24 @@ import {
   Globe,
 } from "lucide-react";
 import Link from "next/link";
+import { Heading } from "./ui/Heading";
+import { Text } from "./ui/Text";
 
-export const Services: React.FC = () => {
+export const ServicesGrid: React.FC = () => {
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
-          <h2 className="text-sm text-emerald-400 font-mono tracking-wider uppercase mb-2">
-            Services for small businesses and startups
-          </h2>
-          <h3 className="text-4xl font-bold text-slate-900 tracking-tight">
+          <Heading as="h3">Services for small businesses and startups</Heading>
+          <Heading as="h2">
             Practical web development and cloud services
-          </h3>
-          <p className="mt-3 max-w-2xl text-slate-200 text-sm sm:text-base">
+          </Heading>
+          <Text variant="large" dark>
             A quick overview of what I can help you build. For full details,
             visit the services page.
-          </p>
+          </Text>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 auto-rows-[minmax(220px,auto)]">
@@ -46,16 +46,14 @@ export const Services: React.FC = () => {
               <div className="w-12 h-12 rounded-lg bg-red-500/20 flex items-center justify-center mb-6 border border-red-500/40">
                 <Cpu className="w-6 h-6 text-red-300" />
               </div>
-              <h4 className="text-2xl font-semibold text-white mb-2">
-                Website Development
-              </h4>
-              <p className="text-sm text-slate-200 max-w-md">
+              <Heading as="h4">Website Development</Heading>
+              <Text dark>
                 Custom React &amp; Next.js websites that load quickly, look
                 professional and are easy to update.
-              </p>
-              <p className="mt-3 text-xs font-mono uppercase tracking-wide text-emerald-300">
+              </Text>
+              <Text variant="tags" dark>
                 React · Next.js · TypeScript
-              </p>
+              </Text>
             </div>
           </Link>
 
@@ -71,16 +69,14 @@ export const Services: React.FC = () => {
               <div className="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mb-6 border border-purple-500/40">
                 <Zap className="w-6 h-6 text-purple-300" />
               </div>
-              <h4 className="text-2xl font-semibold text-white mb-2">
-                Web Apps &amp; Client Portals
-              </h4>
-              <p className="text-sm text-slate-200 max-w-md">
+              <Heading as="h4">Web Apps &amp; Client Portals</Heading>
+              <Text dark>
                 Secure login areas, dashboards and tools tailored to how your
                 business actually works.
-              </p>
-              <p className="mt-3 text-xs font-mono uppercase tracking-wide text-emerald-300">
+              </Text>
+              <Text variant="tags" dark>
                 Portals · Dashboards · Internal tools
-              </p>
+              </Text>
             </div>
           </Link>
 
@@ -96,16 +92,16 @@ export const Services: React.FC = () => {
                 <Cloud className="w-6 h-6 text-cyan-300" />
               </div>
             </div>
-            <h4 className="text-xl font-semibold text-white mb-2">
+            <Heading as="h4">
               Cloud Hosting &amp; Deployment (Google Cloud)
-            </h4>
-            <p className="text-sm text-slate-200 max-w-xl">
+            </Heading>
+            <Text dark>
               Reliable, secure deployments on Google Cloud Platform so your site
               or app is always available and ready to grow.
-            </p>
-            <p className="mt-3 text-xs font-mono uppercase tracking-wide text-emerald-300">
+            </Text>
+            <Text variant="tags" dark>
               GCP · CI/CD · Domains &amp; DNS
-            </p>
+            </Text>
           </Link>
 
           {/* Terraform */}
@@ -120,16 +116,14 @@ export const Services: React.FC = () => {
                 <Repeat className="w-6 h-6 text-pink-300" />
               </div>
             </div>
-            <h4 className="text-xl font-semibold text-white mb-2">
-              Infrastructure as Code (Terraform)
-            </h4>
-            <p className="text-sm text-slate-200 max-w-md">
+            <Heading as="h4">Infrastructure as Code (Terraform)</Heading>
+            <Text dark>
               Fully scripted cloud infrastructure that’s repeatable, auditable
               and easy to change over time.
-            </p>
-            <p className="mt-3 text-xs font-mono uppercase tracking-wide text-emerald-300">
+            </Text>
+            <Text variant="tags" dark>
               Terraform · GCP · Automation
-            </p>
+            </Text>
           </Link>
 
           {/* Databases */}
@@ -144,16 +138,14 @@ export const Services: React.FC = () => {
                 <Lock className="w-6 h-6 text-emerald-300" />
               </div>
             </div>
-            <h4 className="text-xl font-semibold text-white mb-2">
-              Database Setup &amp; Management
-            </h4>
-            <p className="text-sm text-slate-200 max-w-xl">
+            <Heading as="h4">Database Setup &amp; Management</Heading>
+            <Text dark>
               Designing and managing databases for customer data, internal
               systems or full application backends.
-            </p>
-            <p className="mt-3 text-xs font-mono uppercase tracking-wide text-emerald-300">
+            </Text>
+            <Text variant="tags" dark>
               Firestore · Postgres · Supabase · Serverless
-            </p>
+            </Text>
           </Link>
         </div>
       </div>

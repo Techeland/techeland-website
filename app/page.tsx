@@ -1,7 +1,8 @@
 "use client";
 
 import { Hero } from "./components/Hero";
-import { Services } from "./components/Services";
+import { HowItWorks } from "./components/HowItWorks";
+import { ServicesGrid } from "./components/ServicesGrid";
 
 export default function Home() {
   return (
@@ -11,8 +12,16 @@ export default function Home() {
           <Hero />
         </div>
       </section>
-
-      <Services />
+      <section className="py-1">
+        <div className="container">
+          <ServicesGrid />
+        </div>
+      </section>
+      <section className="py-4">
+        <div className="container">
+          <HowItWorks />
+        </div>
+      </section>
     </>
   );
 }
