@@ -39,7 +39,7 @@ export const HowItWorks = () => {
         <HowItWorksStep
           number="2"
           title="Clear plan and proposal"
-          description="I’ll outline the recommended approach, scope, costs, and a realistic delivery plan — written in plain English."
+          description="I’ll outline the recommended approach, scope, costs, and a realistic delivery plan - written in plain English."
         />
         <HowItWorksStep
           number="3"
@@ -49,7 +49,7 @@ export const HowItWorks = () => {
         <HowItWorksStep
           number="4"
           title="Launch and support"
-          description="Once live, I can provide ongoing maintenance, improvements and support — so your system stays secure and reliable."
+          description="Once live, I can provide ongoing maintenance, improvements and support - so your system stays secure and reliable."
         />
       </div>
     </Section>

@@ -7,7 +7,7 @@ export default function Footer() {
             TechEland
           </span>
           <p className="text-slate-600 text-sm mt-1">
-            © {new Date().getFullYear()} TechEland Ltd.
+            © {new Date().getFullYear()} TechEland
           </p>
         </div>
         <div className="flex space-x-8 text-sm font-mono">

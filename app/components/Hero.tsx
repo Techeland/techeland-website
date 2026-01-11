@@ -41,13 +41,13 @@ export const Hero: React.FC = () => {
         <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tighter text-black leading-[1.1] mb-6">
           TechEland <br />
           <span className="text-4xl sm:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-purple-700">
-            Web development for UK businesses
+            Fast, modern websites for UK businesses
           </span>
           <br />
         </h1>
         <h3 className="text-3xl sm:text-5xl font-extrabold tracking-tighter text-black leading-[1.1] mb-6">
-          Modern websites and custom web applications built with React and
-          Next.js by a reliable UK-based developer.
+          Websites that look professional and generate enquiries - built in
+          days, not months
         </h3>
       </div>
       <div className="flex justify-center align-top">
@@ -61,12 +61,12 @@ export const Hero: React.FC = () => {
         </div>
       </div>
       <div className="flex justify-center pt-14 gap-9">
-        <Button size="lg">
+        <Button size="lg" href="/#contact">
           <Text variant="large" dark className="text-center">
             Book a Free Consultation
           </Text>
         </Button>
-        <Button size="lg">
+        <Button size="lg" href="/#services">
           <Text variant="large" dark className="text-center">
             View Services
           </Text>
