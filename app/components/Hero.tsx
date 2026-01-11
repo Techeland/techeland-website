@@ -34,6 +34,14 @@ const TechBadge = ({ icon, label }: { icon: string; label: string }) => {
   );
 };
 
+const scrollToId = (id: string) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+  window.history.replaceState(null, "", `/#${id}`);
+};
+
 export const Hero: React.FC = () => {
   return (
     <>
@@ -50,8 +58,40 @@ export const Hero: React.FC = () => {
           days, not months
         </h3>
       </div>
-      <div className="flex justify-center align-top">
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-6 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+      <div className="flex justify-center pt-10 gap-6 flex-wrap">
+        <Button
+          size="lg"
+          href="#contact"
+          onClick={(e: any) => {
+            e?.preventDefault?.();
+            scrollToId("contact");
+          }}
+        >
+          <Text variant="large" dark className="text-center">
+            Book a free 15-min call
+          </Text>
+        </Button>
+
+        <Button
+          size="lg"
+          href="#services"
+          onClick={(e: any) => {
+            e?.preventDefault?.();
+            scrollToId("services");
+          }}
+        >
+          <Text variant="large" dark className="text-center">
+            View services
+          </Text>
+        </Button>
+      </div>
+
+      <p className="text-center mt-3 text-sm text-black/60">
+        Free • No pressure • Reply within 24 hours
+      </p>
+
+      <div className="flex justify-center">
+        <div className="mt-10 pt-6 border-t border-black/10 flex flex-wrap justify-center gap-6 opacity-70">
           <TechBadge icon="react" label="React" />
           <TechBadge icon="nextjs" label="Next.js" />
           <TechBadge icon="typescript" label="TypeScript" />
@@ -59,18 +99,6 @@ export const Hero: React.FC = () => {
           <TechBadge icon="terraform" label="Terraform" />
           <TechBadge icon="postgres" label="Postgres" />
         </div>
-      </div>
-      <div className="flex justify-center pt-14 gap-9">
-        <Button size="lg" href="/#contact">
-          <Text variant="large" dark className="text-center">
-            Book a Free Consultation
-          </Text>
-        </Button>
-        <Button size="lg" href="/#services">
-          <Text variant="large" dark className="text-center">
-            View Services
-          </Text>
-        </Button>
       </div>
     </>
   );
