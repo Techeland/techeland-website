@@ -34,7 +34,7 @@ export const ServicesGrid: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 auto-rows-[minmax(220px,auto)]">
           {/* Website Development */}
           <Link
-            href="/services#website-development"
+            href="/#services"
             className="md:col-span-3 glass-panel rounded-2xl p-8 relative overflow-hidden
                        group bg-slate-900/70 border border-slate-700 hover:border-emerald-400/60
                        transition-transform hover:-translate-y-1"
@@ -59,7 +59,7 @@ export const ServicesGrid: React.FC = () => {
 
           {/* Web Apps & Portals */}
           <Link
-            href="/services#client-portals-web-apps"
+            href="/#services"
             className="md:col-span-2 glass-panel rounded-2xl p-8 relative overflow-hidden
                        group bg-slate-900/70 border border-slate-700 hover:border-emerald-400/60
                        transition-transform hover:-translate-y-1"
@@ -82,7 +82,7 @@ export const ServicesGrid: React.FC = () => {
 
           {/* Cloud Hosting */}
           <Link
-            href="/services#cloud-hosting-deployment"
+            href="/#services"
             className="md:col-span-4 glass-panel rounded-2xl p-8
                        bg-slate-900/70 border border-slate-700 hover:border-emerald-400/60
                        transition-transform hover:-translate-y-1 group"
@@ -106,7 +106,7 @@ export const ServicesGrid: React.FC = () => {
 
           {/* Terraform */}
           <Link
-            href="/services#terraform-iac"
+            href="/#services"
             className="md:col-span-2 glass-panel rounded-2xl p-8
                        bg-slate-900/70 border border-slate-700 hover:border-emerald-400/60
                        transition-transform hover:-translate-y-1 group"
@@ -128,7 +128,7 @@ export const ServicesGrid: React.FC = () => {
 
           {/* Databases */}
           <Link
-            href="/services#database-setup-management"
+            href="/#services"
             className="md:col-span-3 glass-panel rounded-2xl p-8
                        bg-slate-900/70 border border-slate-700 hover:border-emerald-400/60
                        transition-transform hover:-translate-y-1 group"

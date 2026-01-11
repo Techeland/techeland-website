@@ -60,10 +60,15 @@ export const Hero: React.FC = () => {
           <TechBadge icon="postgres" label="Postgres" />
         </div>
       </div>
-      <div className="flex justify-center pt-14 ">
+      <div className="flex justify-center pt-14 gap-9">
         <Button size="lg">
-          <Text variant="large" dark>
-            Discuss your Project
+          <Text variant="large" dark className="text-center">
+            Book a Free Consultation
+          </Text>
+        </Button>
+        <Button size="lg">
+          <Text variant="large" dark className="text-center">
+            View Services
           </Text>
         </Button>
       </div>

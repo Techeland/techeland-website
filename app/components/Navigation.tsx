@@ -11,51 +11,70 @@ interface NavigationProps {
 }
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", id: "top" },
+  { label: "Services", id: "services" },
+  { label: "About", id: "about" },
+  { label: "How It Works", id: "how-it-works" },
+  { label: "Contact", id: "contact" },
 ];
 
 export const Navigation: React.FC<NavigationProps> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    // Close mobile menu so layout doesn't shift after scrolling
+    setIsOpen(false);
+
+    // Smooth scroll
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // Update URL hash without navigation
+    window.history.replaceState(null, "", `/#${id}`);
+  };
+
   return (
     <>
       {/* Desktop Floating Nav */}
       <div className="hidden md:flex fixed top-6 left-0 right-0 z-50 justify-center">
         <nav className=" bg-accent flex items-center px-2 p-2 rounded-full glass-panel shadow-2xl shadow-black/50">
-          <Link
+          <button
+            onClick={() => scrollToId("top")}
             className="flex items-center cursor-pointer px-4 py-2 rounded-full hover:bg-white/5 transition-colors"
-            href="/"
+            type="button"
           >
             <Cpu className="h-5 w-5 text-indigo-400 mr-2" />
             <span className="font-bold text-slate-200 tracking-tight text-sm">
               TechEland
             </span>
-          </Link>
+          </button>
 
           <div className="h-6 w-px bg-white/10 mx-2"></div>
 
           <div className="flex items-center space-x-1">
-            {navItems.slice(1).map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={
-                    "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 " +
-                    (isActive
-                      ? "text-slate-100 bg-white/10 shadow-inner"
-                      : "text-slate-200 hover:text-white hover:bg-white/5")
-                  }
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
+            <div className="flex items-center space-x-1">
+              {navItems.slice(1).map((item) => {
+                const isActive = pathname === "/";
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToId(item.id)}
+                    className={
+                      "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 " +
+                      (isActive
+                        ? "text-slate-200 hover:text-white hover:bg-white/5"
+                        : "text-slate-200 hover:text-white hover:bg-white/5")
+                    }
+                    type="button"
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </nav>
       </div>
@@ -82,27 +101,16 @@ export const Navigation: React.FC<NavigationProps> = () => {
         {isOpen && (
           <div className="absolute top-16 left-0 right-0 bg-accent border-b border-slate-800 shadow-xl">
             <div className="px-4 py-4 space-y-2">
-              {navItems.map((item) => {
-                const isActive =
-                  item.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(item.href);
-
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                      isActive
-                        ? "text-slate-100 bg-white/10"
-                        : "text-slate-300 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToId(item.id)}
+                  className="block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-colors text-slate-300 hover:text-white hover:bg-white/5"
+                  type="button"
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
           </div>
         )}

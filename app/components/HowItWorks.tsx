@@ -33,7 +33,7 @@ export const HowItWorks = () => {
       <div className="grid gap-20 md:grid-cols-1">
         <HowItWorksStep
           number="1"
-          title="Quick call and requirements"
+          title="Free consultation"
           description="We’ll talk through what you need, what success looks like, and what constraints matter (budget, timelines, existing systems)."
         />
         <HowItWorksStep
