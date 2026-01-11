@@ -25,15 +25,15 @@ const BulletPoints = ({ title, description }: BulletPointsProps) => {
 export const AboutSection = () => {
   return (
     <Section
-      title="About TechEland?"
-      subtitle="Why choose us for your web development needs?"
+      title="About TechEland"
+      subtitle="Why choose me for your web development needs"
     >
       <div className="rounded-2xl bg-slate-900/70 p-6 shadow-sm">
         <Text dark className="mb-4">
           TechEland is a UK-based web development service focused on helping
           small businesses and startups build modern, reliable websites. I
           specialise in React and Next.js, bringing the same tools used by large
-          tech companies to small businesses — without unnecessary complexity or
+          tech companies to small businesses - without unnecessary complexity or
           cost.
         </Text>
         <div>
@@ -43,7 +43,7 @@ export const AboutSection = () => {
           />
           <BulletPoints
             title="Direct access to the developer"
-            description="No agencies, no account managers — you deal directly with me."
+            description="No agencies, no account managers - you deal directly with me."
           />
           <BulletPoints
             title="Clear pricing & fast delivery"
