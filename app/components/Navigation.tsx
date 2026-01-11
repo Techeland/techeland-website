@@ -2,57 +2,79 @@
 import React, { useState } from "react";
 import { Menu, X, Code2, Cpu } from "lucide-react";
 import { ViewState } from "../types";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 interface NavigationProps {
   currentView: ViewState;
   setView: (view: ViewState) => void;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({
-  currentView,
-  setView,
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
+const navItems = [
+  { label: "Home", id: "top" },
+  { label: "Services", id: "services" },
+  { label: "About", id: "about" },
+  { label: "How It Works", id: "how-it-works" },
+  { label: "Contact", id: "contact" },
+];
 
-  const navItems = [
-    { label: "Home", value: ViewState.HOME },
-    { label: "Services", value: ViewState.SERVICES },
-    { label: "Portfolio", value: ViewState.PORTFOLIO },
-    { label: "Insights", value: ViewState.BLOG },
-    { label: "Contact", value: ViewState.CONTACT },
-  ];
+export const Navigation: React.FC<NavigationProps> = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    // Close mobile menu so layout doesn't shift after scrolling
+    setIsOpen(false);
+
+    // Smooth scroll
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // Update URL hash without navigation
+    window.history.replaceState(null, "", `/#${id}`);
+  };
 
   return (
     <>
       {/* Desktop Floating Nav */}
-      <div className="  hidden md:flex fixed top-6 left-0 right-0 z-50 justify-center">
+      <div className="hidden md:flex fixed top-6 left-0 right-0 z-50 justify-center">
         <nav className=" bg-accent flex items-center px-2 p-2 rounded-full glass-panel shadow-2xl shadow-black/50">
-          <div
+          <button
+            onClick={() => scrollToId("top")}
             className="flex items-center cursor-pointer px-4 py-2 rounded-full hover:bg-white/5 transition-colors"
-            onClick={() => setView(ViewState.HOME)}
+            type="button"
           >
             <Cpu className="h-5 w-5 text-indigo-400 mr-2" />
             <span className="font-bold text-slate-200 tracking-tight text-sm">
               TechEland
             </span>
-          </div>
+          </button>
 
           <div className="h-6 w-px bg-white/10 mx-2"></div>
 
           <div className="flex items-center space-x-1">
-            {navItems.slice(1).map((item) => (
-              <button
-                key={item.label}
-                onClick={() => setView(item.value)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  currentView === item.value
-                    ? "text-slate-100 bg-white/10 shadow-inner"
-                    : "text-slate-300 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+            <div className="flex items-center space-x-1">
+              {navItems.slice(1).map((item) => {
+                const isActive = pathname === "/";
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToId(item.id)}
+                    className={
+                      "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 " +
+                      (isActive
+                        ? "text-slate-200 hover:text-white hover:bg-white/5"
+                        : "text-slate-200 hover:text-white hover:bg-white/5")
+                    }
+                    type="button"
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </nav>
       </div>
@@ -60,13 +82,14 @@ export const Navigation: React.FC<NavigationProps> = ({
       {/* Mobile Nav Bar (Standard sticky for usability) */}
       <div className="md:hidden fixed top-0 left-0 right-0 z-50 glass-panel border-b-0">
         <div className="  bg-accent flex items-center justify-between px-4 h-16">
-          <div
+          <Link
             className="flex items-center text-slate-100"
-            onClick={() => setView(ViewState.HOME)}
+            href="/"
+            onClick={() => setIsOpen(false)}
           >
             <Cpu className="h-6 w-6 text-indigo-400 mr-2" />
             <span className="font-bold text-lg  text-slate-200">TechEland</span>
-          </div>
+          </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 rounded-md text-slate-400 hover:text-white hover:bg-white/10"
@@ -81,15 +104,9 @@ export const Navigation: React.FC<NavigationProps> = ({
               {navItems.map((item) => (
                 <button
                   key={item.label}
-                  onClick={() => {
-                    setView(item.value);
-                    setIsOpen(false);
-                  }}
-                  className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium ${
-                    currentView === item.value
-                      ? "text-slate-100 bg-white/5"
-                      : "text-slate-300 hover:text-white hover:bg-white/5"
-                  }`}
+                  onClick={() => scrollToId(item.id)}
+                  className="block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-colors text-slate-300 hover:text-white hover:bg-white/5"
+                  type="button"
                 >
                   {item.label}
                 </button>

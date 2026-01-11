@@ -1,23 +1,39 @@
 "use client";
-import { useState } from "react";
-import Button from "./components/Button";
-import Card from "./components/Card";
-import Section from "./components/Section";
-import { ViewState } from "./types";
-import { Navigation } from "./components/Navigation";
+
+import { AboutSection } from "./components/About";
+import { FinalCTA } from "./components/FinalCTA";
 import { Hero } from "./components/Hero";
-import { Services } from "./components/Services";
+import { HowItWorks } from "./components/HowItWorks";
+import { ServicesGrid } from "./components/ServicesGrid";
 
 export default function Home() {
   return (
     <>
-      <section className="py-12">
+      <section id="top" className="py-12 scroll-mt-24">
         <div className="container">
           <Hero />
         </div>
       </section>
-
-      <Services />
+      <section id="services" className="py-1 scroll-mt-24">
+        <div className="container">
+          <ServicesGrid />
+        </div>
+      </section>
+      <section id="about" className="py-1 scroll-mt-24">
+        <div className="container">
+          <AboutSection />
+        </div>
+      </section>
+      <section id="how-it-works" className="py-1 scroll-mt-24">
+        <div className="container">
+          <HowItWorks />
+        </div>
+      </section>
+      <section id="contact" className="py-1 scroll-mt-24">
+        <div className="container">
+          <FinalCTA />
+        </div>
+      </section>
     </>
   );
 }
