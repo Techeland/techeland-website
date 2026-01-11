@@ -31,6 +31,7 @@ type ButtonProps = {
   size?: keyof typeof sizeStyles;
   dark?: boolean;
   className?: string;
+  onClick?: (e: any) => void;
 };
 
 export const Button = ({
@@ -40,6 +41,7 @@ export const Button = ({
   size = "md",
   dark = false,
   className = "",
+  onClick = (e: any) => {},
 }: ButtonProps) => {
   const theme = dark ? "dark" : "light";
 
@@ -47,6 +49,7 @@ export const Button = ({
     <Link
       href={href}
       className={`inline-block rounded-xl shadow-sm hover:shadow-lg transition-all ${buttonStyles[variant][theme]} ${sizeStyles[size]} ${className}`}
+      onClick={onClick}
     >
       {children}
     </Link>
