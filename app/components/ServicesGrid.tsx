@@ -36,7 +36,7 @@ export const ServicesGrid: React.FC = () => {
           <Link
             href="/#services"
             className="md:col-span-3 glass-panel rounded-2xl p-8 relative overflow-hidden
-                       group bg-slate-900/70 border border-slate-700 hover:border-emerald-400/60
+                       group bg-slate-900/70 border border-slate-700 hover:border-yellow-400/60
                        transition-transform hover:-translate-y-1"
           >
             <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -61,7 +61,7 @@ export const ServicesGrid: React.FC = () => {
           <Link
             href="/#services"
             className="md:col-span-2 glass-panel rounded-2xl p-8 relative overflow-hidden
-                       group bg-slate-900/70 border border-slate-700 hover:border-emerald-400/60
+                       group bg-slate-900/70 border border-slate-700 hover:border-yellow-400/60
                        transition-transform hover:-translate-y-1"
           >
             <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -84,7 +84,7 @@ export const ServicesGrid: React.FC = () => {
           <Link
             href="/#services"
             className="md:col-span-4 glass-panel rounded-2xl p-8
-                       bg-slate-900/70 border border-slate-700 hover:border-emerald-400/60
+                       bg-slate-900/70 border border-slate-700 hover:border-yellow-400/60
                        transition-transform hover:-translate-y-1 group"
           >
             <div className="flex items-center justify-between mb-6">
@@ -108,7 +108,7 @@ export const ServicesGrid: React.FC = () => {
           <Link
             href="/#services"
             className="md:col-span-2 glass-panel rounded-2xl p-8
-                       bg-slate-900/70 border border-slate-700 hover:border-emerald-400/60
+                       bg-slate-900/70 border border-slate-700 hover:border-yellow-400/60
                        transition-transform hover:-translate-y-1 group"
           >
             <div className="flex items-center justify-between mb-6">
@@ -130,7 +130,7 @@ export const ServicesGrid: React.FC = () => {
           <Link
             href="/#services"
             className="md:col-span-3 glass-panel rounded-2xl p-8
-                       bg-slate-900/70 border border-slate-700 hover:border-emerald-400/60
+                       bg-slate-900/70 border border-slate-700 hover:border-yellow-400/60
                        transition-transform hover:-translate-y-1 group"
           >
             <div className="flex items-center justify-between mb-6">

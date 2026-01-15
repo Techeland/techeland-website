@@ -10,7 +10,7 @@ const BulletPoints = ({ title, description }: BulletPointsProps) => {
   return (
     <div>
       <div className="flex items-center py-3 gap-3">
-        <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-700 font-semibold"></span>
+        <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-yellow-500/10 text-emerald-700 font-semibold"></span>
         <div className="flex flex-col gap-1">
           <Text variant="large" dark>
             {title}
