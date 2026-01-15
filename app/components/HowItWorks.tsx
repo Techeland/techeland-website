@@ -12,7 +12,7 @@ const HowItWorksStep = ({ number, title, description }: HowItWorksProps) => {
   return (
     <div className="rounded-2xl bg-slate-900/70 p-6 shadow-sm">
       <div className="flex items-center gap-3">
-        <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-700 font-semibold">
+        <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-yellow-500/10 text-yellow-700 font-semibold">
           {number}
         </span>
         <Heading as="h4">{title}</Heading>

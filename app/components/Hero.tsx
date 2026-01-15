@@ -48,7 +48,7 @@ export const Hero: React.FC = () => {
       <div className="lg:col-span-7 text-left">
         <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tighter text-black leading-[1.1] mb-6">
           TechEland <br />
-          <span className="text-4xl sm:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-purple-700">
+          <span className="text-4xl sm:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-yellow-400">
             Fast, modern websites for UK businesses
           </span>
           <br />
@@ -67,7 +67,7 @@ export const Hero: React.FC = () => {
             scrollToId("contact");
           }}
         >
-          <Text variant="large" dark className="text-center">
+          <Text variant="large" className="text-center">
             Book a free 15-min call
           </Text>
         </Button>
@@ -80,7 +80,7 @@ export const Hero: React.FC = () => {
             scrollToId("services");
           }}
         >
-          <Text variant="large" dark className="text-center">
+          <Text variant="large" className="text-center">
             View services
           </Text>
         </Button>

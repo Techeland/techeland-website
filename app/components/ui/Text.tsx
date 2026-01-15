@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 const textStyles = {
   body: {
     light: "text-base text-slate-700 leading-relaxed",
@@ -8,7 +10,7 @@ const textStyles = {
     dark: "text-sm text-slate-400",
   },
   large: {
-    light: "text-lg font-bold text-slate-700",
+    light: "text-lg font-bold text-slate-900",
     dark: "text-lg font-bold text-slate-300",
   },
   muted: {
@@ -16,8 +18,8 @@ const textStyles = {
     dark: "text-sm text-slate-400",
   },
   tags: {
-    light: "mt-3 text-xs font-mono uppercase tracking-wide text-emerald-700",
-    dark: "mt-3 text-xs font-mono uppercase tracking-wide text-emerald-300",
+    light: "mt-3 text-xs font-mono uppercase tracking-wide text-yellow-700",
+    dark: "mt-3 text-xs font-mono uppercase tracking-wide text-yellow-300",
   },
 } as const;
 
@@ -38,7 +40,7 @@ export const Text = ({
 }: TextProps) => {
   const theme = dark ? "dark" : "light";
   return (
-    <Component className={`${textStyles[variant][theme]} ${className}`}>
+    <Component className={twMerge(textStyles[variant][theme], className)}>
       {children}
     </Component>
   );
