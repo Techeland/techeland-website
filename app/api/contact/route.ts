@@ -1,8 +1,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const isValidEmail = (email: string) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 };
@@ -26,6 +24,15 @@ const rateLimit = (key: string, limit = 5, windowMs = 60 * 1000) => {
 
 export async function POST(req: Request) {
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { ok: false, error: "Missing RESEND_API_KEY" },
+        { status: 500 }
+      );
+    }
+    const resend = new Resend(apiKey);
+
     const ip =
       req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
 
