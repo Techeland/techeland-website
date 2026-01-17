@@ -8,7 +8,7 @@ const buttonStyles = {
   primary: {
     light:
       "bg-yellow-600 bg-opacity-50 hover:bg-opacity-70 border-2 border-slate-900",
-    dark: "bg-yellow-600 bg-opacity-60 hover:bg-opacity-80 border-2 border-slate-900",
+    dark: "bg-yellow-200 bg-opacity-60 hover:bg-opacity-80 border-2 border-slate-900",
   },
   secondary: {
     light:
