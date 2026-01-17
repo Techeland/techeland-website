@@ -1,10 +1,22 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import { supabaseServer } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
 
 export default async function AppLayout({ children }: { children: ReactNode }) {
   const supabase = await supabaseServer();
   const { data } = await supabase.auth.getUser();
+
+  const { data: sub } = await supabase
+    .from("subscriptions")
+    .select("status,current_period_end")
+    .maybeSingle();
+
+  const active = sub?.status === "active" || sub?.status === "trialing";
+
+  if (!active) {
+    redirect("/pricing?subscribe=1");
+  }
 
   return (
     <div className="min-h-screen bg-primary text-slate-800">
