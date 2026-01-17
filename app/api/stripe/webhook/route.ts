@@ -7,12 +7,17 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2025-12-15.clover",
 });
 
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+function supabaseAdmin() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !key) throw new Error("Missing Supabase admin env vars");
+
+  return createClient(url, key);
+}
 
 export async function POST(req: Request) {
+  const admin = supabaseAdmin();
   const body = await req.text();
   const sig = (await headers()).get("stripe-signature");
 
@@ -59,7 +64,7 @@ export async function POST(req: Request) {
       ((subscription as any).current_period_end ?? 0) * 1000
     ).toISOString();
 
-    await supabaseAdmin.from("subscriptions").upsert(
+    await admin.from("subscriptions").upsert(
       {
         user_id: userId,
         stripe_customer_id: (session.customer as string) ?? null,
@@ -83,7 +88,7 @@ export async function POST(req: Request) {
       ((sub as any).current_period_end ?? 0) * 1000
     ).toISOString();
 
-    await supabaseAdmin
+    await admin
       .from("subscripitions")
       .update({
         status,
