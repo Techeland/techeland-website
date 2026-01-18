@@ -23,7 +23,9 @@ export default function LoginPage() {
       email,
       options: {
         // Keep this - it’s still useful, but OTP verify will be your main path
-        emailRedirectTo: `${window.location.origin}/callback`,
+        emailRedirectTo: `${
+          window.location.origin
+        }/callback?next=${encodeURIComponent(next)}`,
       },
     });
 
@@ -39,13 +41,21 @@ export default function LoginPage() {
 
     const { error } = await supabase.auth.verifyOtp({
       email,
-      token,
+      token: token.trim(),
       type: "email",
     });
 
     setLoading(false);
 
-    if (error) return alert(error.message);
+    if (error) {
+      const { data } = await supabase.auth.getSession();
+      if (data.session) {
+        router.push(next);
+        return;
+      }
+      alert(error.message);
+      return;
+    }
 
     router.push(next);
   }

@@ -5,10 +5,11 @@ export async function GET(req: NextRequest) {
   const url = new URL(req.url);
   const code = url.searchParams.get("code");
 
-  const redirectUrl = new URL("/app", req.url);
-  const res = NextResponse.redirect(redirectUrl);
+  const next = url.searchParams.get("next") || "/app";
+  const res = NextResponse.redirect(new URL(next, req.url));
 
-  if (!code) return res;
+  if (!code)
+    return NextResponse.redirect(new URL("/login?error=missing_code", req.url));
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
