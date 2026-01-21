@@ -71,7 +71,7 @@ export const FinalCTA = () => {
 
             <div className="mt-6 flex flex-col gap-3">
               <Button size="lg" href={calendlyUrl || "#"}>
-                <Text variant="large" className="text-center">
+                <Text variant="large" className="text-center text-inherit">
                   Book with Calendly
                 </Text>
               </Button>
@@ -80,7 +80,7 @@ export const FinalCTA = () => {
                 size="lg"
                 href="mailto:hello@techeland.co.uk?subject=TechEland%20enquiry"
               >
-                <Text variant="large" className="text-center">
+                <Text variant="large" className="text-center text-inherit">
                   Email: hello@techeland.co.uk
                 </Text>
               </Button>
@@ -165,7 +165,7 @@ export const FinalCTA = () => {
               </div>
 
               <Button size="lg" type="submit">
-                <Text variant="large" className="text-center">
+                <Text variant="large" className="text-center text-inherit">
                   {state === "submitting" ? "Sending…" : "Send message"}
                 </Text>
               </Button>

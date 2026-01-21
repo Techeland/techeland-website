@@ -7,20 +7,20 @@ type Size = "sm" | "md" | "lg";
 const buttonStyles = {
   primary: {
     light:
-      "bg-yellow-600 bg-opacity-50 hover:bg-opacity-70 border-2 border-slate-900",
-    dark: "bg-yellow-200 bg-opacity-60 hover:bg-opacity-80 border-2 border-slate-900",
+      "bg-brand-teal hover:opacity-90 border border-brand-teal/20 text-onBrand",
+    dark: "bg-brand-teal hover:opacity-90 border border-brand-teal/20 text-onBrand",
   },
   secondary: {
     light:
-      "bg-slate-200 hover:bg-slate-300 border-2 border-slate-400 text-slate-900",
-    dark: "bg-slate-700 hover:bg-slate-600 border-2 border-slate-500 text-white",
+      "bg-slate-200 hover:bg-slate-300 border border-slate-300 text-slate-900",
+    dark: "bg-surface hover:bg-surface/80 border border-line text-ink",
   },
   outline: {
     light:
-      "bg-transparent hover:bg-slate-100 border-2 border-slate-900 text-slate-900",
-    dark: "bg-transparent hover:bg-slate-800 border-2 border-slate-300 text-slate-300",
+      "bg-transparent hover:bg-slate-100 border border-slate-900 text-slate-900",
+    dark: "bg-transparent hover:bg-brand-sky/10 border border-brand-sky/50 text-ink",
   },
-} satisfies Record<ButtonStyles, Record<Theme, string>>;
+} as const;
 
 const sizeClasses: Record<Size, string> = {
   sm: "px-3 py-1.5 text-sm",
@@ -29,7 +29,7 @@ const sizeClasses: Record<Size, string> = {
 };
 
 const baseClasses =
-  "inline-block rounded-xl shadow-sm hover:shadow-lg transition-all";
+  "inline-flex items-center justify-center rounded-2xl transition-colors shadow-sm hover:shadow-md";
 
 type LinkButtonProps = {
   children: React.ReactNode;

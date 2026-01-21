@@ -10,7 +10,7 @@ export type SectionProps = {
 
 export const Section = ({ id, title, subtitle, children }: SectionProps) => {
   return (
-    <section id={id} className="py-16 sm:py-20">
+    <section id={id} className="py-16 sm:py-20 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="mb-8">
           <Heading as="h2">{title}</Heading>
