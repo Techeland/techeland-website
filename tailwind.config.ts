@@ -27,6 +27,22 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
+        heading: [
+          "var(--font-heading)",
+          "var(--font-sans)",
+          "ui-sans-serif",
+          "system-ui",
+        ],
+        mono: [
+          "var(--font-mono)",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "monospace",
+        ],
+      },
       colors: {
         base: "#0F172A",
         surface: "#111827",
