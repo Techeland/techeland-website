@@ -37,7 +37,7 @@ export const ServicesGrid: React.FC = () => {
             href="/#services"
             className="md:col-span-3 glass-panel rounded-2xl p-8 relative overflow-hidden
                        group bg-slate-900/70 border border-slate-700 hover:border-brand-teal
-                       transition-transform hover:-translate-y-1"
+                       transition-transform hover:-translate-y-0.5"
           >
             <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
               <Code className="w-14 h-14 text-slate-100" />

@@ -27,7 +27,9 @@ const TechBadge = ({ icon, label }: { icon: string; label: string }) => {
           {IconComponent && <IconComponent color="teal" size={24} />}
         </div>
       </div>
-      <span className="text-sm font-medium text-ink align-middle">{label}</span>
+      <span className="text-sm font-medium text-ink/70 align-middle">
+        {label}
+      </span>
     </div>
   );
 };
@@ -43,14 +45,18 @@ const scrollToId = (id: string) => {
 export const Hero: React.FC = () => {
   return (
     <>
-      <div className="max-w-4xl">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(45,212,191,0.08),transparent_60%)]" />
+
+      <div className="max-w-4xl ">
         <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-ink leading-[1.05]">
           TechEland
         </h1>
-        <p className="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight text-brand-teal leading-[1.05]">
-          Fast, modern websites for UK businesses
-        </p>
-        <p className="mt-5 text-2xl sm:text-4xl font-semibold text-ink/80 leading-tight">
+        <div className="max-w-3xl">
+          <p className="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight text-brand-teal leading-[1.05]">
+            Fast, modern websites for UK businesses
+          </p>
+        </div>
+        <p className="mt-5 text-2xl sm:text-4xl font-medium text-ink/80 leading-tight">
           Websites that look professional and generate enquiries — built in
           days, not months
         </p>
@@ -88,7 +94,7 @@ export const Hero: React.FC = () => {
         Free • No pressure • Reply within 24 hours
       </p>
 
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <div className="mt-10 pt-6 border-t border-line flex flex-wrap justify-center gap-6 opacity-80">
           <TechBadge icon="react" label="React" />
           <TechBadge icon="nextjs" label="Next.js" />
@@ -97,7 +103,7 @@ export const Hero: React.FC = () => {
           <TechBadge icon="terraform" label="Terraform" />
           <TechBadge icon="postgres" label="Postgres" />
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

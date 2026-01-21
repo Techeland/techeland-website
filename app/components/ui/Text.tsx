@@ -2,24 +2,24 @@ import { twMerge } from "tailwind-merge";
 
 const textStyles = {
   body: {
-    light: "text-base leading-relaxed text-slate-700", // only if you still have light sections
-    dark: "text-base leading-relaxed text-muted",
+    dark: "font-sans text-base leading-relaxed text-muted",
+    light: "font-sans text-base leading-relaxed text-slate-700",
   },
   small: {
-    light: "text-sm text-slate-600",
-    dark: "text-sm text-muted/90",
+    dark: "font-sans text-sm text-muted/90",
+    light: "font-sans text-sm text-slate-600",
   },
   large: {
-    light: "text-lg font-bold text-slate-900",
-    dark: "text-lg font-bold text-ink",
+    dark: "font-sans text-lg font-semibold",
+    light: "font-sans text-lg font-semibold",
   },
   muted: {
-    light: "text-sm text-slate-500",
-    dark: "text-sm text-muted",
+    dark: "font-sans text-sm text-muted",
+    light: "font-sans text-sm text-slate-500",
   },
   tags: {
-    light: "mt-3 text-xs font-mono uppercase tracking-wide text-slate-700",
-    dark: "mt-3 text-xs font-mono uppercase tracking-wide text-brand-sky",
+    dark: "font-mono mt-3 text-xs uppercase tracking-wide text-brand-sky",
+    light: "font-mono mt-3 text-xs uppercase tracking-wide text-slate-700",
   },
 } as const;
 

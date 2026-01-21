@@ -40,7 +40,7 @@ export const Navigation: React.FC<NavigationProps> = () => {
     <>
       {/* Desktop Floating Nav */}
       <div className="hidden md:flex fixed top-6 left-0 right-0 z-50 justify-center">
-        <nav className=" bg-base/70 backdrop-blur flex items-center px-2 p-2 rounded-full glass-panel shadow-2xl shadow-brand-teal/50">
+        <nav className=" bg-base/70 backdrop-blur flex items-center px-2 p-2 rounded-full glass-panel shadow-2xl shadow-brand-teal/20">
           <button
             onClick={() => scrollToId("top")}
             className="flex items-center cursor-pointer px-4 py-2 rounded-full hover:text-brand-teal transition-colors"
