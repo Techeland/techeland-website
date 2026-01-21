@@ -2,24 +2,24 @@ import { twMerge } from "tailwind-merge";
 
 const textStyles = {
   body: {
-    light: "text-base text-slate-700 leading-relaxed",
-    dark: "text-base text-slate-300 leading-relaxed",
+    light: "text-base leading-relaxed text-slate-700", // only if you still have light sections
+    dark: "text-base leading-relaxed text-muted",
   },
   small: {
     light: "text-sm text-slate-600",
-    dark: "text-sm text-slate-400",
+    dark: "text-sm text-muted/90",
   },
   large: {
     light: "text-lg font-bold text-slate-900",
-    dark: "text-lg font-bold text-slate-300",
+    dark: "text-lg font-bold text-ink",
   },
   muted: {
     light: "text-sm text-slate-500",
-    dark: "text-sm text-slate-400",
+    dark: "text-sm text-muted",
   },
   tags: {
-    light: "mt-3 text-xs font-mono uppercase tracking-wide text-yellow-700",
-    dark: "mt-3 text-xs font-mono uppercase tracking-wide text-yellow-300",
+    light: "mt-3 text-xs font-mono uppercase tracking-wide text-slate-700",
+    dark: "mt-3 text-xs font-mono uppercase tracking-wide text-brand-sky",
   },
 } as const;
 
@@ -34,7 +34,7 @@ type TextProps = {
 export const Text = ({
   as: Component = "p",
   variant = "body",
-  dark = false,
+  dark = true,
   children,
   className = "",
 }: TextProps) => {
