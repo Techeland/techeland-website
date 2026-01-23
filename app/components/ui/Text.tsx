@@ -13,13 +13,18 @@ const textStyles = {
     dark: "font-sans text-lg font-semibold",
     light: "font-sans text-lg font-semibold",
   },
+  subtitle: {
+    dark: "font-sans text-lg sm:text-xl font-medium text-muted leading-relaxed",
+    light:
+      "font-sans text-lg sm:text-xl font-medium text-muted leading-relaxed",
+  },
   muted: {
     dark: "font-sans text-sm text-muted",
     light: "font-sans text-sm text-slate-500",
   },
   tags: {
-    dark: "font-mono mt-3 text-xs uppercase tracking-wide text-brand-sky",
-    light: "font-mono mt-3 text-xs uppercase tracking-wide text-slate-700",
+    dark: "font-mono mt-3 text-xs uppercase tracking-[0.18em] text-brand-sky",
+    light: "font-mono mt-3 text-xs uppercase tracking-[0.18em] text-slate-700",
   },
 } as const;
 
