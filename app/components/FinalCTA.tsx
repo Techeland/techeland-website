@@ -62,7 +62,7 @@ export const FinalCTA = () => {
 
         <div className="mt-6 grid  gap-4 items-start">
           {/* LEFT: Booking panel */}
-          <div className="self-start rounded-2xl p-6 border border-white/10 bg-gradient-to-b from-amber-100/20 to-amber-900/30">
+          <div className="self-start rounded-2xl p-6 border border-white/10 bg-gradient-to-b from-surface/20 to-brand-sky/20">
             <Heading as="h3">Book a free 15-min call</Heading>
             <Text className="mt-2 text-slate-300">
               Quick chat to understand what you need and suggest the best next
