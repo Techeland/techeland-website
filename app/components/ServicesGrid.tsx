@@ -14,139 +14,146 @@ import Link from "next/link";
 import { Heading } from "./ui/Heading";
 import { Text } from "./ui/Text";
 
+type ServiceCardProps = {
+  title: string;
+  description: string;
+  amount: string;
+  tags: string[];
+  fromLabel?: string;
+  recurring?: string;
+  href?: string;
+  icon: React.ReactNode;
+  tone?: "teal" | "sky";
+};
+
+const ServiceCard = ({
+  title,
+  description,
+  amount,
+  tags,
+  fromLabel = "From",
+  recurring = "",
+  href = "/services",
+  icon,
+  tone = "teal",
+}: ServiceCardProps) => {
+  const toneClasses =
+    tone === "teal"
+      ? "bg-brand-teal/10 border-brand-teal/20 text-brand-teal"
+      : "bg-brand-sky/10 border-brand-sky/20 text-brand-sky";
+
+  return (
+    <Link
+      href={href}
+      className="
+        group rounded-2xl border border-line/85 bg-surface/40 p-7 shadow-soft/30 backdrop-blur
+        hover:bg-base/45 hover:border-line flex flex-col hover:-translate-y-0.5 transition-all
+      "
+    >
+      <div
+        className={`mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border ${toneClasses}`}
+      >
+        {icon}
+      </div>
+      <Heading as="h4" className="mb-1 leading-tight">
+        {title}
+      </Heading>
+      <Text className="mt-3 text-muted flex-1">{description}</Text>
+      <div className="mt-6 flex items-end justify-between gap-4 pt-3 border-t border-line/60">
+        <div className="flex items-baseline gap-2 min-w-0">
+          <Text as="span" className="text-muted text-sm">
+            {fromLabel}
+          </Text>
+          <Text
+            as="span"
+            className="text-ink font-semibold tracking-tight text-xl sm:text-2xl leading-none"
+          >
+            {amount}
+          </Text>
+          {recurring && (
+            <Text
+              as="span"
+              className="text-muted font-medium tracking-tight text-sm leading-none"
+            >
+              {recurring}
+            </Text>
+          )}
+        </div>
+
+        <div className="flex flex-wrap justify-end gap-2 max-w-[45%]">
+          {tags.map((t) => (
+            <span
+              key={t}
+              className="font-mono text-[10px] uppercase tracking-[0.18em] text-brand-sky/90"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Link>
+  );
+};
+
 export const ServicesGrid: React.FC = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+    <section className="py-24 relative overflow-hidden bg-surface">
+      <div className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute -top-56 left-1/3 h-[520px] w-[520px] -translate-x-1/2 rounded-full
+                  bg-[radial-gradient(circle,rgba(45,212,191,0.08),transparent_65%)] blur-3xl"
+        />
+        <div
+          className="absolute -top-64 left-2/3 h-[520px] w-[520px] -translate-x-1/2 rounded-full
+                  bg-[radial-gradient(circle,rgba(56,189,248,0.06),transparent_65%)] blur-3xl"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface/70 to-surface" />
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
           <Heading as="h3">Services for small businesses and startups</Heading>
           <Heading as="h2">
-            Practical web development and cloud services
+            Websites and tools built for speed, reliability and enquiries
           </Heading>
-          <Text variant="large" dark>
-            A quick overview of what I can help you build. For full details,
-            visit the services page.
+          <Text variant="subtitle">
+            A quick overview of what I offer. For more detail, view the services
+            page.
           </Text>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 auto-rows-[minmax(220px,auto)]">
-          {/* Website Development */}
-          <Link
-            href="/#services"
-            className="md:col-span-3 glass-panel rounded-2xl p-8 relative overflow-hidden
-                       group bg-slate-900/70 border border-slate-700 hover:border-brand-teal
-                       transition-transform hover:-translate-y-0.5"
-          >
-            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-              <Code className="w-14 h-14 text-slate-100" />
-            </div>
-            <div className="relative z-10 flex flex-col h-full">
-              <div className="w-12 h-12 rounded-lg bg-red-500/20 flex items-center justify-center mb-6 border border-red-500/40">
-                <Cpu className="w-6 h-6 text-red-300" />
-              </div>
-              <Heading as="h4">Website Development</Heading>
-              <Text dark>
-                Custom React &amp; Next.js websites that load quickly, look
-                professional and are easy to update.
-              </Text>
-              <Text variant="tags" dark>
-                React · Next.js · TypeScript
-              </Text>
-            </div>
-          </Link>
+        <div className="grid gap-6 md:grid-cols-3">
+          <ServiceCard
+            title="Simple websites"
+            description="Fast, professional sites built to generate enquiries — ideal for local services, trades, and small businesses."
+            amount="£250"
+            tags={["Design", "Build"]}
+            icon={<Layout className="h-6 w-6" />}
+            tone="teal"
+            href="/services"
+          />
 
-          {/* Web Apps & Portals */}
-          <Link
-            href="/#services"
-            className="md:col-span-2 glass-panel rounded-2xl p-8 relative overflow-hidden
-                       group bg-slate-900/70 border border-slate-700 hover:border-brand-teal
-                       transition-transform hover:-translate-y-1"
-          >
-            <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="relative z-10 flex flex-col h-full">
-              <div className="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mb-6 border border-purple-500/40">
-                <Zap className="w-6 h-6 text-purple-300" />
-              </div>
-              <Heading as="h4">Web Apps &amp; Client Portals</Heading>
-              <Text dark>
-                Secure login areas, dashboards and tools tailored to how your
-                business actually works.
-              </Text>
-              <Text variant="tags" dark>
-                Portals · Dashboards · Internal tools
-              </Text>
-            </div>
-          </Link>
+          <ServiceCard
+            title="Portals & ecommerce"
+            description="Client portals, dashboards and online selling — tailored to how your business operates."
+            amount="£500"
+            tags={["Portals", "Shops"]}
+            icon={<Globe className="h-6 w-6" />}
+            tone="sky"
+            href="/services"
+          />
 
-          {/* Cloud Hosting */}
-          <Link
-            href="/#services"
-            className="md:col-span-4 glass-panel rounded-2xl p-8
-                       bg-slate-900/70 border border-slate-700 hover:border-brand-teal
-                       transition-transform hover:-translate-y-1 group"
-          >
-            <div className="flex items-center justify-between mb-6">
-              <div className="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center border border-cyan-500/40">
-                <Cloud className="w-6 h-6 text-cyan-300" />
-              </div>
-            </div>
-            <Heading as="h4">
-              Cloud Hosting &amp; Deployment (Google Cloud)
-            </Heading>
-            <Text dark>
-              Reliable, secure deployments on Google Cloud Platform so your site
-              or app is always available and ready to grow.
-            </Text>
-            <Text variant="tags" dark>
-              GCP · CI/CD · Domains &amp; DNS
-            </Text>
-          </Link>
-
-          {/* Terraform */}
-          <Link
-            href="/#services"
-            className="md:col-span-2 glass-panel rounded-2xl p-8
-                       bg-slate-900/70 border border-slate-700 hover:border-brand-teal
-                       transition-transform hover:-translate-y-1 group"
-          >
-            <div className="flex items-center justify-between mb-6">
-              <div className="w-12 h-12 rounded-lg bg-pink-500/20 flex items-center justify-center border border-pink-500/40">
-                <Repeat className="w-6 h-6 text-pink-300" />
-              </div>
-            </div>
-            <Heading as="h4">Infrastructure as Code (Terraform)</Heading>
-            <Text dark>
-              Fully scripted cloud infrastructure that’s repeatable, auditable
-              and easy to change over time.
-            </Text>
-            <Text variant="tags" dark>
-              Terraform · GCP · Automation
-            </Text>
-          </Link>
-
-          {/* Databases */}
-          <Link
-            href="/#services"
-            className="md:col-span-3 glass-panel rounded-2xl p-8
-                       bg-slate-900/70 border border-slate-700 hover:border-brand-teal
-                       transition-transform hover:-translate-y-1 group"
-          >
-            <div className="flex items-center justify-between mb-6">
-              <div className="w-12 h-12 rounded-lg bg-emerald-500/20 flex items-center justify-center border border-emerald-500/40">
-                <Lock className="w-6 h-6 text-emerald-300" />
-              </div>
-            </div>
-            <Heading as="h4">Database Setup &amp; Management</Heading>
-            <Text dark>
-              Designing and managing databases for customer data, internal
-              systems or full application backends.
-            </Text>
-            <Text variant="tags" dark>
-              Firestore · Postgres · Supabase · Serverless
-            </Text>
-          </Link>
+          <ServiceCard
+            title="Monitoring & care"
+            description="Ongoing monitoring, updates and support to keep your website fast, secure and online. Cancel anytime."
+            amount="£30"
+            recurring="/ month"
+            tags={["Support", "Uptime"]}
+            icon={<Lock className="h-6 w-6" />}
+            tone="teal"
+            fromLabel=""
+            href="/services#care"
+          />
         </div>
       </div>
     </section>
